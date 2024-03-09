@@ -1,1 +1,71 @@
+#include <stdio.h>
 
+void bubbleSort(int arr[], int n, int *totalSwaps) {
+    *totalSwaps = 0;
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                (*totalSwaps)++;
+            }
+        }
+    }
+}
+
+void selectionSort(int arr[], int n, int *totalSwaps) {
+    *totalSwaps = 0;
+    for (int i = 0; i < n-1; i++) {
+        int min_idx = i;
+        for (int j = i+1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+        if (min_idx != i) {
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+            (*totalSwaps)++;
+        }
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int array1[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+    int array2[] = {90, 80, 70, 60, 50, 40, 30, 20, 10};
+    int totalSwaps1, totalSwaps2;
+
+    bubbleSort(array1, sizeof(array1) / sizeof(array1[0]), &totalSwaps1);
+    printf("Bubble Sort - Array 1: ");
+    printArray(array1, sizeof(array1) / sizeof(array1[0]));
+    printf("Total # of swaps: %d\n", totalSwaps1);
+
+    bubbleSort(array2, sizeof(array2) / sizeof(array2[0]), &totalSwaps2);
+    printf("Bubble Sort - Array 2: ");
+    printArray(array2, sizeof(array2) / sizeof(array2[0]));
+    printf("Total # of swaps: %d\n\n", totalSwaps2);
+
+    int array1Reset[] = {97, 16, 45, 63, 13, 22, 7, 58, 72};
+    int array2Reset[] = {90, 80, 70, 60, 50, 40, 30, 20, 10};
+
+    selectionSort(array1Reset, sizeof(array1Reset) / sizeof(array1Reset[0]), &totalSwaps1);
+    printf("Selection Sort - Array 1: ");
+    printArray(array1Reset, sizeof(array1Reset) / sizeof(array1Reset[0]));
+    printf("Total # of swaps: %d\n", totalSwaps1);
+
+    selectionSort(array2Reset, sizeof(array2Reset) / sizeof(array2Reset[0]), &totalSwaps2);
+    printf("Selection Sort - Array 2: ");
+    printArray(array2Reset, sizeof(array2Reset) / sizeof(array2Reset[0]));
+    printf("Total # of swaps: %d\n", totalSwaps2);
+
+    return 0;
+}
