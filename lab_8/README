@@ -1,0 +1,8 @@
+Lab 8 instructions
+1. Download code
+2. Open CMD
+3. Change the dictionary EX> cd C:\Users\Owner\Documents\lab_8\
+4. Use the GCC compiler to turn the code into an exe EX. gcc sort.c -o sort.exe
+5. Run the code in CMD EX. sort.exe input1.txt
+6. Repeat step 5 for all input files
+7. Pat yourself on the back you did it! :D <3
