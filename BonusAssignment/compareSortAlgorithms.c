@@ -217,10 +217,6 @@ int main(void) {
         printf("\textra memory allocated\t: %d\n", extraMemoryAllocated);
         printArray(pDataCopy, dataSz);
 
-        // The similar process should be repeated for other sorting algorithms
-        // Just ensure to reset extraMemoryAllocated before each sort
-        // and use the correct sort function call
-
         DeAlloc(pDataCopy);
         DeAlloc(pDataSrc);
     }
